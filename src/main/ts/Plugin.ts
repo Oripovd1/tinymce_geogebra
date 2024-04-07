@@ -58,11 +58,13 @@ const setup = (editor: Editor, url: string): void => {
         api.close();
       },
     });
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
     const parameters = {
       id: "ggbApplet",
       appName: "classic",
-      width: 1150,
-      height: 500,
+      width: vw * 0.9 - 32,
+      height: vh * 0.9 - 128,
       showToolBar: true,
       borderColor: null,
       showMenuBar: true,
