@@ -1,4 +1,5 @@
 import { Editor, TinyMCE } from "tinymce";
+import fitSvg from "./fitSvg";
 
 declare const tinymce: TinyMCE;
 
@@ -42,7 +43,14 @@ const setup = (editor: Editor, url: string): void => {
         app.setGridVisible(false);
 
         app.exportSVG((svg) => {
-          const src = "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+          const div = document.getElementById("svg_renderer");
+          div.innerHTML = svg;
+          const svgElement = div.querySelector("svg");
+          fitSvg(svgElement);
+
+          const src =
+            "data:image/svg+xml;utf8," +
+            encodeURIComponent(svgElement.outerHTML);
           editor.insertContent(
             `<img src='${src}' alt='geogebra' data-xml='${data}'/>`
           );

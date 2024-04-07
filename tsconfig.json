@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "moduleResolution": "node",
-    "target": "es5",
+    "target": "es6",
     "module": "es2015",
     "importHelpers": true,
     "lib": ["es2015", "dom"],
@@ -12,9 +13,5 @@
     "baseUrl": ".",
     "types": ["mocha"]
   },
-  "include": [
-    "src/demo/ts",
-    "src/main/ts",
-    "src/test/ts"
-  ]
+  "include": ["src/demo/ts", "src/main/ts", "src/test/ts"]
 }
