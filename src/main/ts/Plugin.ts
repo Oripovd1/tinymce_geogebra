@@ -9,7 +9,8 @@ const setup = (editor: Editor, url: string): void => {
     const xml = element.getAttribute("data-xml");
     setTimeout(() => {
       const api = applet.getAppletObject();
-      api.setXML(xml);
+      if (xml.startsWith("<?xml")) api.setXML(xml);
+      else api.setBase64(xml);
     }, 100);
   };
   const openDialog = () => {
@@ -38,7 +39,7 @@ const setup = (editor: Editor, url: string): void => {
       ],
       onSubmit: (api) => {
         const app = window.ggbApplet;
-        const data = app.getXML();
+        const data = app.getBase64();
         app.setAxesVisible(false, false);
         app.setGridVisible(false);
 
