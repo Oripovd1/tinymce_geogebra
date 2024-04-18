@@ -40,8 +40,8 @@ const setup = (editor: Editor, url: string): void => {
       onSubmit: (api) => {
         const app = window.ggbApplet;
         const data = app.getBase64();
-        app.setAxesVisible(false, false);
-        app.setGridVisible(false);
+        // app.setAxesVisible(false, false);
+        // app.setGridVisible(false);
 
         app.exportSVG((svg) => {
           const div = document.getElementById("svg_renderer");
