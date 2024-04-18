@@ -50,8 +50,8 @@ const setup = (editor: Editor, url: string): void => {
           fitSvg(svgElement);
 
           const src =
-            "data:image/svg+xml;utf8," +
-            encodeURIComponent(svgElement.outerHTML);
+            "data:image/svg+xml;base64," +
+            btoa(unescape(encodeURIComponent(svgElement.outerHTML)));
           editor.insertContent(
             `<img src='${src}' alt='geogebra' data-xml='${data}'/>`
           );
