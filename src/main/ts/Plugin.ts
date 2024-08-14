@@ -11,7 +11,7 @@ const setup = (editor: Editor, url: string): void => {
       const api = applet.getAppletObject();
       if (xml.startsWith("<?xml")) api.setXML(xml);
       else api.setBase64(xml);
-    }, 100);
+    }, 1000);
   };
   const openDialog = () => {
     editor.windowManager.open({
