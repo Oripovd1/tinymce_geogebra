@@ -40,14 +40,15 @@ const setup = (editor: Editor, url: string): void => {
       onSubmit: (api) => {
         const app = window.ggbApplet;
         const data = app.getBase64();
-        // app.setAxesVisible(false, false);
-        // app.setGridVisible(false);
+        const isGridVisible = app.getGridVisible();
 
         app.exportSVG((svg) => {
           const div = document.getElementById("svg_renderer");
           div.innerHTML = svg;
           const svgElement = div.querySelector("svg");
-          fitSvg(svgElement);
+          if (!isGridVisible) {
+            fitSvg(svgElement);
+          }
 
           const src =
             "data:image/svg+xml;base64," +
